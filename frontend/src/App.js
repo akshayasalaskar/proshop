@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Container } from "react-bootstrap";
-import HomeScreens from "./screens/HomeScreens.jsx";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +9,10 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <HomeScreens />
+          {/* replacing home component to outlet the <Outlet /> component is used in App.js as a placeholder for 
+          rendering child routes defined in your routing setup (index.js). This is a feature provided by 
+          react-router-dom that allows you to render nested routes within a parent route. */}
+          <Outlet />
         </Container>
       </main>
       <Footer />

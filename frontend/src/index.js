@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
-  createRoutesFromChildren,
+  createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -12,21 +12,17 @@ import "./assets/styles/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import HomeScreens from "./screens/HomeScreens";
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     //parent route
-//     <Route path="/" element={<App />}>
-//       {/* children route, app and home screens has same routes  , pass index as true otherwise it will give multiple route error */}
-//       <Route index={true} path="/" element={<HomeScreens />} />
-//     </Route>
-//   )
-// );
+import ProductScreen from "./screens/ProductScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    //parent route
     <Route path="/" element={<App />}>
-      <Route index="true" path="/" element={<HomeScreens />}></Route>
+      {/* children route, app and home screens has same routes  , pass index as true otherwise it will give multiple route error */}
+      <Route index={true} path="/" element={<HomeScreens />} />
+      {/* link given product and is mapped to Product screen here  */}
+      {/* The :id in the route path is a route parameter, which can be accessed in your ProductScreen component using the useParams hook:  */}
+      <Route path="/product/:id" element={<ProductScreen />} />
     </Route>
   )
 );
